@@ -44,18 +44,18 @@ class DashboardMenuController extends Controller
             'nama' => 'required',
             'kategori' => 'required',
             'harga' => 'required',
-            'gambar' => 'image|file|max:4096',
+            'gambar' => 'image|file|max:4096|required',
         ]);
 
-        if ($request->file('image')) {
-            $validated['gambar'] = $request->file('image')->store('foto-deluna');
+
+        if ($request->file('gambar')) {
+            $validated['gambar'] = $request->file('gambar')->store('foto-deluna');
         }
         $validated['status'] = 'tersedia';
 
         Menu::create($validated);
 
         return redirect()->to('/admin/item');
-        // return $request;
     }
 
     /**

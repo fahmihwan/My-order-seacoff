@@ -168,8 +168,7 @@
         <div class="col-sm-12   mb-xl-0">
             <div class="d-flex bd-highlight ">
                 <div class="me-auto p-0 bd-highlight">
-                    <h5 class="text-dark font-weight-bold p-0 m-0">Penjualan</h5>
-                    <p class="text-muted"> Last login was 23 hours ago. </p>
+                    <h5 class="text-dark font-weight-bold py-2 mb-0">Penjualan</h5>
                 </div>
             </div>
         </div>

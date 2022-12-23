@@ -1,43 +1,42 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="row">
-        <div class="col-sm-12 mb-xl-0">
-            <div class="d-flex bd-highlight ">
-                <div class="me-auto p-2 bd-highlight">
-                    <h5 class="text-dark font-weight-bold p-0 m-0">Laporan pembayaran cash</h5>
-                    <p class="text-muted"> Last login was 23 hours ago. </p>
-                </div>
+<div class="row">
+    <div class="col-sm-12 mb-xl-0">
+        <div class="d-flex bd-highlight ">
+            <div class="me-auto p-2 bd-highlight">
+                <h5 class="text-dark font-weight-bold py-2 m-0">Laporan pembayaran cash</h5>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
+</div>
+<div class="row">
+    <div class="col-md-12">
 
-            Select Year : <select id='date-dropdown' class="form-control mb-2" style="width: 200px;" name="date">
-            </select>
+        Select Year : <select id='date-dropdown' class="form-control mb-2" style="width: 200px;" name="date">
+        </select>
 
-            <div class="card" style="width: 900px;">
-                <canvas id="myChart"></canvas>
-            </div>
-
-            {{-- <div class="card mt-5" style="width: 900px;">
-                <canvas id="myChart-line"></canvas>
-            </div> --}}
+        <div class="card" style="width: 900px;">
+            <canvas id="myChart"></canvas>
         </div>
+
+        {{-- <div class="card mt-5" style="width: 900px;">
+            <canvas id="myChart-line"></canvas>
+        </div> --}}
     </div>
-    {{-- <form class="d-none">
-        @foreach ($jml as $bulan)
-            <input type="text" class="bulan" value="{{ $bulan }}">
-        @endforeach
-    </form> --}}
+</div>
+{{-- <form class="d-none">
+    @foreach ($jml as $bulan)
+    <input type="text" class="bulan" value="{{ $bulan }}">
+    @endforeach
+</form> --}}
 @endsection
 
 @section('script')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        // let data = []
+<script>
+    // let data = []
         // const countMount = document.getElementsByClassName('bulan');
         // for (let i = 0; i <= countMount.length - 1; i++) {
         //     data.push(countMount[i].value)
@@ -103,10 +102,10 @@
             }
             const myChart = new Chart(ctx, obj);
         }
-    </script>
+</script>
 
-    {{-- <script>
-        let tgl = []
+{{-- <script>
+    let tgl = []
         for (let i = 1; i <= 30; i++) {
             tgl.push(i)
         }
@@ -146,5 +145,5 @@
                 }
             }
         });
-    </script> --}}
+</script> --}}
 @endsection

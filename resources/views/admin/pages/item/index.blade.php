@@ -71,10 +71,10 @@
             <div class="d-flex bd-highlight ">
                 <div class="me-auto p-2 bd-highlight">
                     <h5 class="text-dark font-weight-bold p-0 m-0">Menu </h5>
-                    <p class="text-muted"> Last login was 23 hours ago. </p>
+
                 </div>
                 <div class="p-2 bd-highlight">
-                    <input type="text" class="form-control" placeholder="cari menu ...  ">
+
                 </div>
                 <div class="p-2 bd-highlight">
                     @if (auth()->user()->hak_akses == 'admin')

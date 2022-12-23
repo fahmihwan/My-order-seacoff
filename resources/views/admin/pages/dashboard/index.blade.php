@@ -19,7 +19,7 @@
         <div class="col-sm-6 mb-4 mb-xl-0">
             <div class="d-lg-flex align-items-center">
                 <div>
-                    <h3 class="text-dark font-weight-bold mb-2">Dashboard </h3>
+                    <h5 class="text-dark font-weight-bold py-2">Dashboard </h5>
                     <!-- <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6> -->
                 </div>
             </div>
