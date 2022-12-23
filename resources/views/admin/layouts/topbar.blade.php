@@ -9,8 +9,8 @@
         <div class="bd-highlight px-4">
             <ul class="navbar-nav ">
                 {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-bell"></i>
                     </a>
                     <ul class="dropdown-menu position-absolute dropdown-menu-end"
@@ -31,12 +31,14 @@
                     <ul class="dropdown-menu position-absolute dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuLink">
                         @if (auth()->user()->hak_akses == 'admin')
-                            <li><a class="dropdown-item" href="/admin/setting/meja">
-                                    <i class="fas fa-qrcode"></i>
-                                    Pengaturan Qrcode</a></li>
-                            <li><a class="dropdown-item" href="/admin/setting/akun">
-                                    <i class="fas fa-user"></i>
-                                    Pengaturan Akun </a></li>`
+                        <li><a class="dropdown-item" href="/admin/setting/meja">
+                                <i class="fas fa-qrcode"></i>
+                                Pengaturan Qrcode</a></li>
+                        <li>
+                            <a class="dropdown-item" href="/admin/setting/akun">
+                                <i class="fas fa-user"></i>
+                                Pengaturan Akun </a>
+                        </li>
                         @endif
                         <li>
                             <form action="/auth/logout" method="post">
@@ -46,7 +48,6 @@
                                     Logout
                                 </button>
                             </form>
-
                         </li>
                     </ul>
                 </li>

@@ -7,7 +7,9 @@
                 <h5 class="text-dark font-weight-bold py-2 m-0">Edit Menu </h5>
             </div>
             <div class="p-2 bd-highlight">
-
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="/admin/item" class="btn btn-primary">Kembali</a>
             </div>
 
         </div>

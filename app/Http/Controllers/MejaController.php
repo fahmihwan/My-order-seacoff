@@ -18,10 +18,8 @@ class MejaController extends Controller
      */
     public function index()
     {
-        // $meja =  Meja::latest()->get();
-
         return view('admin.pages.meja.index', [
-            'qrcode' => Meja::latest()->get(),
+            'qrcode' => Meja::all(),
         ]);
     }
 
@@ -32,8 +30,6 @@ class MejaController extends Controller
      */
     public function create()
     {
-
-
         if (Meja::count() == 0) {
             Meja::create([
                 'id' => 1,
@@ -41,7 +37,6 @@ class MejaController extends Controller
                 'qrcode' => 'null',
             ]);
         }
-
 
         return view('admin.pages.meja.create');
     }

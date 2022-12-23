@@ -2,10 +2,15 @@
 
 @section('container')
 <div class="row">
-    <div class="col-sm-6 mb-4 mb-xl-0">
+    <div class="col-sm-6 col-md-12 mb-4 mb-xl-0">
         <div class="d-lg-flex align-items-center justify-content-between">
             <div>
                 <h5 class="text-dark font-weight-bold py-2">Tambah Menu </h5>
+            </div>
+            <div class="p-2 bd-highlight">
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="/admin/item" class="btn btn-primary">Kembali</a>
             </div>
         </div>
     </div>

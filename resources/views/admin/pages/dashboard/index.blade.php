@@ -1,135 +1,135 @@
 @extends('admin.layouts.main')
 
 @section('styles')
-    <style>
-        .list-order {
-            height: 380px;
-            overflow: scroll;
-        }
+<style>
+    .list-order {
+        height: 380px;
+        overflow: scroll;
+    }
 
-        .form-check-input {
-            width: 30px;
-            height: 30px;
-        }
-    </style>
+    .form-check-input {
+        width: 30px;
+        height: 30px;
+    }
+</style>
 @endsection
 
 @section('container')
-    <div class="row">
-        <div class="col-sm-6 mb-4 mb-xl-0">
-            <div class="d-lg-flex align-items-center">
-                <div>
-                    <h5 class="text-dark font-weight-bold py-2">Dashboard </h5>
-                    <!-- <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6> -->
+<div class="row">
+    <div class="col-sm-6 mb-4 mb-xl-0">
+        <div class="d-lg-flex align-items-center">
+            <div>
+                <h5 class="text-dark font-weight-bold py-2">Dashboard </h5>
+                <!-- <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-2">
+        <div class="row flex-column ">
+            <div class="col-md-12 d-flex grid-margin stretch-card mb-3" style="height: 140px">
+                <div class="card" style="width:100%; border-bottom: 8px solid #464dee;">
+                    <div class="card-body">
+                        <h5 class="text-primary mb-2 font-weight-bold" id="jml-order">0</h5>
+                        <h4 class="card-title mb-2"> Order</h4>
+                        <p class="text-muted">{{ $current_date }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex grid-margin stretch-card" style="height: 140px">
+                <div class="card " style="width:100%; border-bottom: 8px solid #464dee;">
+                    <div class="card-body">
+                        <h5 class="text-primary mb-2" id="jml-transaksi">Rp 0</h5>
+                        <h4 class="card-title mb-2">Transaksi</h4>
+                        <p class="text-muted">{{ $current_date }}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row ">
-        <div class="col-md-2">
-            <div class="row flex-column ">
-                <div class="col-md-12 d-flex grid-margin stretch-card mb-3" style="height: 140px">
-                    <div class="card" style="width:100%; border-bottom: 8px solid #464dee;">
-                        <div class="card-body">
-                            <h5 class="text-primary mb-2 font-weight-bold" id="jml-order">0</h5>
-                            <h4 class="card-title mb-2"> Order</h4>
-                            <p class="text-muted">{{ $current_date }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 d-flex grid-margin stretch-card" style="height: 140px">
-                    <div class="card " style="width:100%; border-bottom: 8px solid #464dee;">
-                        <div class="card-body">
-                            <h5 class="text-primary mb-2" id="jml-transaksi">Rp 0</h5>
-                            <h4 class="card-title mb-2">Transaksi</h4>
-                            <p class="text-muted">{{ $current_date }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-10 grid-margin stretch-card ">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">List Order</h4>
-                    <div class="table-responsive list-order">
-                        <table class="table table-hover ">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>nota</th>
-                                    <th>nama</th>
-                                    <th>meja</th>
-                                    <th>transaksi</th>
-                                    <th>waktu</th>
-                                    <th>order</th>
-                                    <th>Status pembayaran</th>
-                                    <th>selesai</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                                <!-- ajax -->
-                                <tr class="border-light">
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr class="border-light">
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr class="border-light">
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr class="border-light">
-                                    <td colspan="7" rowspan="4">
-                                        <div class="d-flex justify-content-center  " style="line-height:30px; ">
-                                            <p class="me-2 text-muted">tunggu sebenta ...</p>
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modal-meja" aria-hidden="true">
-            <div class="modal-dialog" style="width:350px; margin:40px auto;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal-meja"> meja</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex bd-highlight mb-3">
-                            <div class="me-auto bd-highlight"><b>pesanan</b></div>
-                            <div class="bd-highlight"><b>kategori</b></div>
-                        </div>
-                        <div id="list-order-modal">
+    <div class="col-md-10 grid-margin stretch-card ">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">List Order</h4>
+                <div class="table-responsive list-order">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>nota</th>
+                                <th>nama</th>
+                                <th>meja</th>
+                                <th>transaksi</th>
+                                <th>waktu</th>
+                                <th>order</th>
+                                <th>Status pembayaran</th>
+                                <th>selesai</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
                             <!-- ajax -->
+                            <tr class="border-light">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="border-light">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="border-light">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="border-light">
+                                <td colspan="9" rowspan="4">
+                                    <div class="d-flex justify-content-center  " style="line-height:30px; ">
+                                        <p class="me-2 text-muted">tunggu sebenta ...</p>
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                        </div>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modal-meja" aria-hidden="true">
+        <div class="modal-dialog" style="width:350px; margin:40px auto;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-meja"> meja</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="me-auto bd-highlight"><b>pesanan</b></div>
+                        <div class="bd-highlight"><b>kategori</b></div>
                     </div>
-                    <div class="modal-body text-center" id="btn-current-status-order">
-                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">nanti dulu</button>
-                        <button value="" type="button" class="btn btn-primary" id="buat_pesanan">buat pesanan
-                            sekarang</button>
+                    <div id="list-order-modal">
+                        <!-- ajax -->
+
                     </div>
+                </div>
+                <div class="modal-body text-center" id="btn-current-status-order">
+                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">nanti dulu</button>
+                    <button value="" type="button" class="btn btn-primary" id="buat_pesanan">buat pesanan
+                        sekarang</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('script')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
             const tBody = document.getElementById('table-body');
 
             const btnModal = document.getElementsByClassName('getModal')
@@ -181,9 +181,9 @@
                 console.log(res)
                 if (res.listOrder.length == 0) {
                     values = ` <tr class="border-light"">
-                                    <td colspan="7" rowspan="4">
-                                        <div class="d-flex justify-content-center  " style="line-height:30px; ">
-                                            <p class="mt-5 me-2 text-muted">belum ada transaksi</p>
+                                    <td colspan="9" rowspan="4">
+                                        <div class="d-flex justify-content-center" style="line-height:30px; ">
+                                            <p class="mt-5 me-2 text-muted">belum ada transaksi hari ini</p>
                                         </div>
                                     </td>
                                 </tr>`
@@ -280,5 +280,5 @@
             }
 
         })
-    </script>
+</script>
 @endsection

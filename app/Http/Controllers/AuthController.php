@@ -40,6 +40,8 @@ class AuthController extends Controller
         return back()->with('loginError', 'Login failed!');
     }
 
+
+
     public function registerasi()
     {
 
@@ -48,6 +50,7 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
+
         $validatedData =  $request->validate([
             'nama' => 'required|max:255',
             'username' => ['required', 'min:3', 'max:255', 'unique:users'],
@@ -68,7 +71,6 @@ class AuthController extends Controller
     public function edit($id)
     {
 
-        dd($id);
         return view('admin.pages.akun.edit');
     }
 
@@ -112,5 +114,11 @@ class AuthController extends Controller
         } else {
             Alert::error('Failed', $error);
         }
+    }
+
+
+    public function demoRegisAkun()
+    {
+        return view('halaman.forDemo');
     }
 }

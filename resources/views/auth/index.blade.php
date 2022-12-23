@@ -79,36 +79,43 @@
 
 <body class="text-center  d-flex justify-content-center ">
     {{-- <main class="form-signin"> --}}
-    <main class="cards">
-        <form class="m-5" method="post" action="/">
-            @csrf
-            <img class="mb-4" src="{{ asset('assets/images/sea_coff-logo.jpeg') }}" alt="" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-            <div class="form-floating">
-                <input type="username" name="username" class="form-control" id="floatingInput" placeholder="username">
-                <label for="floatingInput">Username</label>
+        <main class=" cards">
+            @if (session('loginError'))
+            <div class="alert alert-danger">
+                {{ session('loginError') }}
             </div>
-            <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="floatingPassword"
-                    placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="w-100 btn btn-lg text-light" style="background-color:
-            #a03129" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-        </form>
+            @endif
+            <form class="m-5" method="post" action="/">
+                @csrf
+                <img class="mb-4" src="{{ asset('assets/images/sea_coff-logo.jpeg') }}" alt="" height="57">
+                <h1 class="h3 mb-3 fw-normal">Please sign in </h1>
 
-    </main>
+                <div class="form-floating">
+                    <input type="username" name="username" required class="form-control" id="floatingInput"
+                        placeholder="username">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" name="password" required class="form-control" id="floatingPassword"
+                        placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg text-light" style="background-color:#a03129" type="submit">Sign
+                    in</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017 – {{date('Y')}}</p>
+            </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 
 
 </body>

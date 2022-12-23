@@ -1,47 +1,48 @@
 @extends('layout/main')
 @section('styles')
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-        .sticky-title {
-            background-color: white;
-            position: sticky;
-            position: -webkit-sticky;
-            top: 0px;
-            z-index: 3;
-        }
-    </style>
+    .sticky-title {
+        background-color: white;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0px;
+        z-index: 3;
+    }
+</style>
 @endsection
 
 @section('container')
-    <div class="row sticky-title  pt-2">
-        <a href="/menu" class="d-inline w-25">
-            <i class="fa-solid fa-arrow-left"></i>
-        </a>
-        <h5 class="text-center w-auto">Tinjauan Pesanan</h5>
+<div class="row sticky-title  pt-2">
+    <a href="/menu" class="d-inline w-25">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <h5 class="text-center w-auto">Tinjauan Pesanan</h5>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12" style="background-color: white">
+        <span class="text-muted">Tempat</span>
+        <h5>{{ $meja }}</h5>
+        <span class="text-muted " style="font-size: 10px">
+            <p>cek status pesanan di buat. dan tunggu hingga waiters
+                menganterkan pesanan and</p>
+        </span>
     </div>
-    <div class="row mt-2">
-        <div class="col-md-12" style="background-color: white">
-            <span class="text-muted">Tempat</span>
-            <h5>{{ $meja }}</h5>
-            <span class="text-muted " style="font-size: 10px">
-                <p>cek status pesanan di buat. dan tunggu hingga waiters
-                    menganterkan pesanan and</p>
-            </span>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-md-12" style="background-color: white">
-            <span class="text-muted">Detail Pesanan</span>
-            <div id="detail-pesanan" style="min-height: 37vh">
+</div>
+<div class="row mt-2">
+    <div class="col-md-12" style="background-color: white">
+        <span class="text-muted">Detail Pesanan</span>
+        <div id="detail-pesanan" style="min-height: 42vh">
+            {{-- <div id="detail-pesanan" style="min-height: 100%"> --}}
                 {{-- DATA --}}
             </div>
         </div>
         <div class="col-md-12 text-center py-2" style="background-color: white">
-            <b> <a href="" class="text-decoration-none">Tambah Lagi</a></b>
+            {{-- <b> <a href="" class="text-decoration-none">Tambah Lagi</a></b> --}}
         </div>
     </div>
     <div class="row mt-2">
@@ -73,9 +74,9 @@
 
         </div>
     </div>
-@endsection
+    @endsection
 
-@section('script')
+    @section('script')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
@@ -314,4 +315,4 @@
 
         })
     </script>
-@endsection
+    @endsection

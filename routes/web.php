@@ -110,19 +110,18 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['hakAkses:admin'])->group(function () {
         Route::resource('/admin/setting/meja', MejaController::class);
 
-        // Route::get('/admin/setting/akun', [AuthController::class, 'list']);
-        // Route::get('/admin/setting/akun/registerasi', [AuthController::class, 'registerasi']);
+        // buat production
+        Route::get('/admin/setting/akun', [AuthController::class, 'list']);
+        Route::get('/admin/setting/akun/registerasi', [AuthController::class, 'registerasi']);
         // Route::post('/admin/setting/akun', [AuthController::class, 'store']);
-        // Route::post('/admin/setting/akun/{id}/edit', [AuthController::class, 'edit']);
-        // Route::delete('/admin/setting/akun/{id}/destroy', [AuthController::class, 'destroy']);
+        Route::post('/admin/setting/akun/{id}/edit', [AuthController::class, 'edit']);
+        Route::delete('/admin/setting/akun/{id}/destroy', [AuthController::class, 'destroy']);
     });
 });
 
-Route::get('/admin/setting/akun', [AuthController::class, 'list']);
-Route::get('/admin/setting/akun/registerasi', [AuthController::class, 'registerasi']);
+// buat demo
+Route::get('/demo-register', [AuthController::class, 'demoRegisAkun']);
 Route::post('/admin/setting/akun', [AuthController::class, 'store']);
-Route::post('/admin/setting/akun/{id}/edit', [AuthController::class, 'edit']);
-Route::delete('/admin/setting/akun/{id}/destroy', [AuthController::class, 'destroy']);
 
 
 

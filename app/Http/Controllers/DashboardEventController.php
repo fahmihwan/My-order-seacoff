@@ -43,11 +43,10 @@ class DashboardEventController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'date' => '',
-            'image' => 'image|file|max:4096',
+            'date' => 'required',
+            'image' => 'image|file|max:4096|required',
             'description' => 'required',
         ]);
-
 
 
         $validated['image'] = $request->file('image');
@@ -80,9 +79,8 @@ class DashboardEventController extends Controller
      */
     public function edit($id)
     {
-        // dd($id);
-        $event = Event::where('id', $id)->first();
 
+        $event = Event::where('id', $id)->first();
         return view('admin.pages.event.edit', [
             'event' => $event
         ]);
@@ -97,7 +95,22 @@ class DashboardEventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'image' => 'image|file|max:4096',
+            'description' => '',
+        ]);
+
+
+        if ($request->file('image')) {
+            Storage::delete($request->image);
+            $validated['image'] = $request->file('image')->store('acara-sea');
+        }
+        $validated['id'] = $id;
+        Event::where('id', $id)->update($validated);
+        return redirect('/admin/event');
     }
 
     /**
